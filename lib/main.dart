@@ -26,7 +26,7 @@ class _MyAppState extends State<MyApp> {
   List<String> Questions = [
     'Whats\'s your favourite color?',
     'Whats\'s your favourite animal?',
-    'How many genders are there?',
+    'How many genders are there,Tell me?',
   ];
 
   @override
