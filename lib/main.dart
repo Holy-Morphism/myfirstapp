@@ -15,8 +15,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  var _questionIndex = 0;
-  var _totalscore = 0;
+  int _questionIndex = 0, _totalscore = 0;
   final questions = const [
     {
       'questiontext': 'Whats\'s your favourite color?',
@@ -49,9 +48,16 @@ class _MyAppState extends State<MyApp> {
   _answerQuestion(int score) {
     _totalscore += score;
     setState(() {
-      _questionIndex = _questionIndex + 1;
+      _questionIndex += 1;
     });
     print(_questionIndex);
+  }
+
+  _resetQuiz() {
+    setState(() {
+      _totalscore = 0;
+      _questionIndex = 0;
+    });
   }
 
   @override
@@ -68,7 +74,7 @@ class _MyAppState extends State<MyApp> {
                 questions: questions,
                 questionIndex: _questionIndex,
                 answerQuestion: _answerQuestion)
-            : Result(),
+            : Result(_totalscore, _resetQuiz),
       ),
     );
   }
