@@ -6,9 +6,6 @@ class Result extends StatelessWidget {
     return Center(
       child: Text(
         'You did it!',
-        style: TextStyle(
-          color: Colors.white,
-        ),
       ),
     );
   }

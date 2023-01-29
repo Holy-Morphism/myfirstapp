@@ -15,12 +15,11 @@ class Answer extends StatelessWidget {
           style: TextStyle(color: Colors.white),
         ),
         style: ButtonStyle(
-          backgroundColor:
-              MaterialStateProperty.all<Color>(Color.fromARGB(255, 255, 0, 0)),
+          backgroundColor: MaterialStateProperty.all<Color>(
+              Color.fromARGB(255, 33, 150, 245)),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20.0),
-              side: BorderSide(color: Colors.white, width: 2),
+              borderRadius: BorderRadius.circular(100.0),
             ),
           ),
           alignment: Alignment.center,

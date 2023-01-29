@@ -16,21 +16,38 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   var _questionIndex = 0;
+  var _totalscore = 0;
   final questions = const [
     {
       'questiontext': 'Whats\'s your favourite color?',
-      'answers': ['Red', 'Blue', "Green", 'Black']
+      'answers': [
+        {'text': 'Red', 'score': 1},
+        {'text': 'Blue', 'score': 2},
+        {'text': 'Green', 'score': 3},
+        {'text': 'Black', 'score': 4}
+      ]
     },
     {
       'questiontext': 'Whats\'s your favourite animal?',
-      'answers': ['Red', 'Blue', "Green", 'Black']
+      'answers': [
+        {'text': 'Cat', 'score': 1},
+        {'text': 'Dog', 'score': 2},
+        {'text': 'Blue Whale', 'score': 3},
+        {'text': 'A bad Bitch', 'score': 69}
+      ]
     },
     {
-      'questiontext': 'How many genders are there,Tell me?',
-      'answers': ['Red', 'Blue', "Green", 'Black']
+      'questiontext': 'How many genders are there?',
+      'answers': [
+        {'text': '1(Females don\'t count)', 'score': 100},
+        {'text': '2', 'score': 2},
+        {'text': '82', 'score': 3},
+        {'text': 'Don\'t know', 'score': 0}
+      ]
     }
   ];
-  _answerQuestion() {
+  _answerQuestion(int score) {
+    _totalscore += score;
     setState(() {
       _questionIndex = _questionIndex + 1;
     });
@@ -44,7 +61,7 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: Text('NUCENCE'),
           centerTitle: true,
-          backgroundColor: Colors.red,
+          backgroundColor: Colors.blue,
         ),
         body: (_questionIndex < questions.length)
             ? Quiz(
@@ -52,7 +69,6 @@ class _MyAppState extends State<MyApp> {
                 questionIndex: _questionIndex,
                 answerQuestion: _answerQuestion)
             : Result(),
-        backgroundColor: Colors.black,
       ),
     );
   }
